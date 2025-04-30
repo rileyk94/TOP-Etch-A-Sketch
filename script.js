@@ -7,12 +7,17 @@ let individualSize = 25
 
 
 
+
+
 function createGrid() {
     for (let i = 0; i < size; i++) {
         const div = document.createElement('div');
         div.classList.add("grid")
         div.addEventListener("mouseover", () => {
-            div.style.backgroundColor = "black";
+            let red = Math.floor(Math.random()*256)
+            let green = Math.floor(Math.random()*256)
+            let blue = Math.floor(Math.random()*256)
+            div.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
         })
         div.style.width = `${individualSize}%`;
         div.style.height = `${individualSize}%`;
@@ -54,11 +59,6 @@ sizeButton.addEventListener("click", () => {
         }
     }
     createGrid()
-    // reset.addEventListener("click", () => {
-    //     grid.forEach(div => {
-    //         div.style.backgroundColor = "aquamarine";
-    //     })  
-    // })
 })
 
 
