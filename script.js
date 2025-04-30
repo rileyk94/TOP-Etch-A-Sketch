@@ -54,11 +54,11 @@ sizeButton.addEventListener("click", () => {
         }
     }
     createGrid()
-    reset.addEventListener("click", () => {
-        grid.forEach(div => {
-            div.style.backgroundColor = "aquamarine";
-        })  
-    })
+    // reset.addEventListener("click", () => {
+    //     grid.forEach(div => {
+    //         div.style.backgroundColor = "aquamarine";
+    //     })  
+    // })
 })
 
 
