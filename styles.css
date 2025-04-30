@@ -29,14 +29,12 @@ body {
 h3 {
     color: white;
 }
+
 .hover {
     background-color: brown;
 }
 
 .grid {
-    /* border: 2px solid black; */
-    width: 25%;
-    height: 25%;
     box-sizing: border-box;
 }
 
