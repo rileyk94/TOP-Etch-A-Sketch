@@ -1,0 +1,4 @@
+#ideas/thoughts
+I am stuck on changing the style of the "ink" of my project. current thought: 
+move the style changes outside of the create grid function and implement them
+separately for each style button. how do I create the default? 
