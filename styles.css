@@ -66,6 +66,11 @@ h3 {
 }
 
 .active {
-    border: 2px solid greenyellow;
+    border: 2px solid black;
     font-weight: bold;
+}
+
+.style button {
+    background-color: white;
+    border-radius: 5px;
 }
