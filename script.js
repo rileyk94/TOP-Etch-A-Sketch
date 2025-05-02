@@ -42,46 +42,48 @@ black.addEventListener("click", () => {
 })
 
 function createGrid() {
+    border.innerHTML = '';
     for (let i = 0; i < size; i++) {
         const div = document.createElement('div');
-        if (blackActive === true) {
-            div.addEventListener("mouseover", () => {
-                div.style.backgroundColor = black
-            })
-        } else if (colorsActive === true) {
-            div.addEventListener("mouseover", () => {
+        div.classList.add("grid")
+        div.style.width = `${individualSize}%`;
+        div.style.height = `${individualSize}%`;
+        div.style.backgroundColor = "aquamarine";
+        let moveCount = 0;
+        div.addEventListener("mouseover", () => {
+            if (blackActive === true) {
+                div.style.backgroundColor = "black";
+                div.style.opacity = 1;
+            } else if (colorsActive === true) {
                 let red = Math.floor(Math.random()*256)
                 let green = Math.floor(Math.random()*256)
                 let blue = Math.floor(Math.random()*256)
                 div.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-            })
-        } else if (shadingActive === true) {
-            let moveCount = 0;
-            let opacityAmmount = 0;
-            div.addEventListener("mouseover", () => {
-                moveCount +=1;
-                div.style.backgroundColor = black;
+                div.style.opacity = 1;
+            } else if (shadingActive === true) {
+                let opacityAmmount = 0;
+                moveCount ++;
+                div.style.backgroundColor = "black";
                 opacityAmmount = moveCount*0.1;
+                if (opacityAmmount > 1) {
+                    opacityAmmount = 1;
+                }
                 div.style.opacity = opacityAmmount;
-            })
-        }
-        div.classList.add("grid")
-        div.style.width = `${individualSize}%`;
-        div.style.height = `${individualSize}%`;
-        border.appendChild(div);
-        //style of "ink"
-        
-        const grid = document.querySelectorAll(".grid")
-        reset.addEventListener("click", () => {
-            grid.forEach(div => {
-                div.style.backgroundColor = "aquamarine";
-            })  
+            }
         })
+        border.appendChild(div);
     }
 }
 
 createGrid()
 
+reset.addEventListener("click", () => {
+    const grid = document.querySelectorAll(".grid")
+    grid.forEach(div => {
+        div.style.backgroundColor = "aquamarine";
+        div.style.opacity = 1;
+    })  
+})
 
 sizeButton.addEventListener("click", () => {
     const grid = document.querySelectorAll(".grid")
@@ -108,6 +110,13 @@ sizeButton.addEventListener("click", () => {
         }
     }
     createGrid()
+    reset.addEventListener("click", () => {
+        const grid = document.querySelectorAll(".grid")
+        grid.forEach(div => {
+            div.style.backgroundColor = "aquamarine";
+            div.style.opacity = 1;
+        })  
+    })
 })
 
 
