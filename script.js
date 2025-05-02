@@ -15,6 +15,7 @@ let blackActive = true;
 black.classList.add("active");
 
 shading.addEventListener("click", () => {
+    resetSketchPad()
     shadingActive = true;
     colorsActive = false;
     blackActive = false;
@@ -24,6 +25,7 @@ shading.addEventListener("click", () => {
 })
 
 colors.addEventListener("click", () => {
+    resetSketchPad()
     colorsActive = true;
     shadingActive = false;
     blackActive = false;
@@ -33,6 +35,7 @@ colors.addEventListener("click", () => {
 })
 
 black.addEventListener("click", () => {
+    resetSketchPad()
     blackActive = true;
     colorsActive = false;
     shadingActive = false;
@@ -77,6 +80,13 @@ function createGrid() {
 
 createGrid()
 
+function resetSketchPad() {
+    const grid = document.querySelectorAll(".grid")
+    grid.forEach(div => {
+        div.style.backgroundColor = "aquamarine";
+        div.style.opacity = 1;
+    })  
+}
 reset.addEventListener("click", () => {
     const grid = document.querySelectorAll(".grid")
     grid.forEach(div => {
@@ -110,13 +120,6 @@ sizeButton.addEventListener("click", () => {
         }
     }
     createGrid()
-    reset.addEventListener("click", () => {
-        const grid = document.querySelectorAll(".grid")
-        grid.forEach(div => {
-            div.style.backgroundColor = "aquamarine";
-            div.style.opacity = 1;
-        })  
-    })
 })
 
 
